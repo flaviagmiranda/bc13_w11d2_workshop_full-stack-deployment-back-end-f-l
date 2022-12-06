@@ -25,3 +25,9 @@ export async function editListItem (itemId) {
   )
   return result.rows[0]
 }
+
+export async function deleteList () {
+  const removed = await pool.query('DELETE * FROM shopping')
+  const deletedList = removed.rows[0]
+  return deletedList
+}

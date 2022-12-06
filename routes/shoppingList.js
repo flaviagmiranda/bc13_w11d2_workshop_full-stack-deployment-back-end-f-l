@@ -2,7 +2,8 @@ import express from 'express'
 import {
   getShoppingList,
   postListItem,
-  editListItem
+  editListItem,
+  deleteList
 } from '../models/shoppingList.js'
 
 const router = express.Router()
@@ -23,6 +24,11 @@ router.patch('/:id', async (req, res) => {
   const id = req.params.id
   const editedListItem = await editListItem(id)
   res.json({ success: true, payload: editedListItem })
+})
+
+router.delete('/', async function (req, res) {
+  const deletedList = await deleteList()
+  res.json({ success: true, payload: deletedList })
 })
 
 export default router
