@@ -19,10 +19,10 @@ router.post('/', async (req, res) => {
   res.status(201).json({ success: true, payload: result })
 })
 
-router.patch('/:id', async function (req, res) {
+router.patch('/:id', async (req, res) => {
   const id = req.params.id
-  const editListItem = await editListItem(id)
-  res.json({ success: true, payload: editListItem })
+  const editedListItem = await editListItem(id)
+  res.json({ success: true, payload: editedListItem })
 })
 
 export default router
